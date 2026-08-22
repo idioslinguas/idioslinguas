@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idíoslinguas - Lecciones y Práctica</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            fun: ['Fredoka', 'cursive'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f8ff',
+              100: '#e0f1fe',
+              500: '#0082c3',
+              600: '#006ba3',
+              700: '#005380',
+              dark: '#1a365d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos personalizados y animaciones suaves */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .lesson-card {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .lesson-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(0, 130, 195, 0.18);
+    }
+    .badge-glow {
+      box-shadow: 0 0 12px rgba(0, 130, 195, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-slate-800 antialiased">
+
+  <!-- Header / Nav -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Vectorial Oficial de Idíoslinguas -->
+      <a href="#" class="flex items-center space-x-3 group cursor-pointer">
+        <div class="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm">
+            <path d="M 30,115 C 15,55 80,15 150,28 C 182,34 192,62 170,82 C 138,112 45,152 30,115 Z" fill="none" stroke="#e63946" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 162,38 C 188,68 182,132 142,168 C 100,202 38,172 48,130" fill="none" stroke="#ffb703" stroke-width="7" stroke-linecap="round"/>
+            <path d="M 38,138 C 58,182 122,188 162,152" fill="none" stroke="#2a9d8f" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="100" cy="95" r="50" fill="none" stroke="#0077b6" stroke-width="5"/>
+            <ellipse cx="100" cy="95" rx="24" ry="50" fill="none" stroke="#0077b6" stroke-width="3"/>
+            <line x1="50" y1="95" x2="150" y2="95" stroke="#0077b6" stroke-width="3"/>
+            <line x1="60" y1="70" x2="140" y2="70" stroke="#0077b6" stroke-width="2"/>
+            <line x1="60" y1="120" x2="140" y2="120" stroke="#0077b6" stroke-width="2"/>
+            <rect x="110" y="58" width="22" height="14" rx="2" fill="#b71c1c"/>
+            <path d="M 110,58 H 121 V 65 H 110 Z" fill="#0d47a1"/>
+            <line x1="110" y1="62" x2="132" y2="62" stroke="#ffffff" stroke-width="1.5"/>
+            <line x1="110" y1="66" x2="132" y2="66" stroke="#ffffff" stroke-width="1.5"/>
+            <line x1="110" y1="70" x2="132" y2="70" stroke="#ffffff" stroke-width="1.5"/>
+            <path d="M 70,68 A 22,22 0 1 1 95,103 L 85,113 L 88,100 A 22,22 0 0 1 70,68 Z" fill="#0077b6"/>
+            <text x="82" y="91" font-family="'Fredoka', sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle">i</text>
+            <path d="M 125,88 A 20,20 0 1 1 145,120 L 142,128 L 134,119 A 20,20 0 0 1 125,88 Z" fill="#2a9d8f"/>
+            <text x="127" y="110" font-family="'Fredoka', sans-serif" font-weight="bold" font-size="18" fill="#ffffff" text-anchor="middle">l</text>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center text-xl sm:text-2xl font-extrabold tracking-tight text-[#16467d] leading-none font-fun">
+            <span>idíos</span><span class="text-[#1e5899] relative">linguas<span class="absolute -top-1.5 right-12 text-emerald-500 text-xs">🍃</span></span>
+          </div>
+          <span class="text-[9px] font-extrabold text-[#16467d] tracking-[0.2em] uppercase mt-0.5">
+            ACADEMIA DE IDIOMAS
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegación estilo sitio original -->
+      <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-600">
+        <a href="#lecciones" class="hover:text-brand-500 transition-colors">Niveles</a>
+        <a href="#refuerzo" class="hover:text-brand-500 transition-colors">Práctica</a>
+        <a href="#contacto" class="hover:text-brand-500 transition-colors">Contacto</a>
+        <a href="#lecciones" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 py-2.5 rounded-full shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+          Cursos
+        </a>
+      </nav>
+
+      <!-- Botón Menú Móvil -->
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-brand-500 p-2 rounded-lg">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+      <a href="#lecciones" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-slate-600 font-medium hover:bg-slate-50">Niveles</a>
+      <a href="#refuerzo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-slate-600 font-medium hover:bg-slate-50">Práctica</a>
+      <a href="#contacto" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-slate-600 font-medium hover:bg-slate-50">Contacto</a>
+      <a href="#lecciones" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md bg-brand-500 text-white font-medium text-center shadow-sm">Cursos</a>
+    </div>
+  </header>
+
+  <!-- Hero / Header de Contenido -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-50 text-brand-500 border border-brand-100 mb-4">
+        <i class="fa-solid fa-graduation-cap"></i> Nivel A1 — Principiante
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-fun">
+        Plan de Estudio y Práctica
+      </h1>
+      <p class="mt-3 text-base sm:text-lg text-slate-600">
+        Selecciona tu lección para acceder a las actividades interactivas o utiliza las herramientas de refuerzo.
+      </p>
+    </div>
+
+    <!-- Seccion 1: Lecciones principales -->
+    <section id="lecciones" class="mb-14">
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-slate-200">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2 font-fun">
+          <i class="fa-solid fa-book-open text-brand-500"></i> Lecciones del Curso
+        </h2>
+        <span class="text-xs sm:text-sm font-semibold text-slate-500">9 Lecciones disponibles</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- Lección 1 -->
+        <a href="https://idioslinguas.github.io/A1-Leccion-1/" target="_blank" class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 01
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 1: Introducción & Saludos
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Inicia con el vocabulario básico, frases iniciales y estructuras de presentación.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </a>
+
+        <!-- Lección 2 -->
+        <a href="https://idioslinguas.github.io/A1-Leccion-2/" target="_blank" class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group">
+	 <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 02
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 2: Verbo To Be & Pronombres
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Aprende a formular oraciones afirmativas, negativas e interrogativas básicas.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+      </a>
+
+        <!-- Lección 3 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 03
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 3: Números, Días & Meses
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Vocabulario esencial para fechas, conteo, precios y horarios.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+        <!-- Lección 4 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 04
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 4: Rutinas & Presente Simple
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Estructura oraciones sobre tus actividades diarias y hábitos comunes.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+        <!-- Lección 5 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 05
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 5: La Familia y Adjetivos
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Aprende a describir personas, rasgos de personalidad y miembros familiares.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+        <!-- Lección 6 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 06
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 6: La Casa & Preposiciones
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Uso de In, On, At, There is/are y partes de la casa.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+        <!-- Lección 7 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 07
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 7: Alimentos & Sustantivos
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Sustantivos contables e incontables, Some, Any y comidas del día.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+        <!-- Lección 8 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 08
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 8: Lugares de la Ciudad
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Cómo pedir direcciones, transporte y ubicación en la ciudad.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+        <!-- Lección 9 -->
+        <div class="lesson-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between group cursor-pointer">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-lg border border-brand-100">
+                Lección 09
+              </span>
+              <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> Disponible
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 group-hover:text-brand-500 transition-colors">
+              Lección 9: Preguntas Wh- & Repaso
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              Who, What, Where, When, Why, How y preparación para la evaluación final.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+            <span>Iniciar lección</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección 2: Herramientas de Refuerzo -->
+    <section id="refuerzo" class="mb-12">
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-slate-200">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2 font-fun">
+          <i class="fa-solid fa-laptop-code text-purple-600"></i> Herramientas de Refuerzo y Evaluación
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Tarjeta de Examen Integral A1 -->
+        <div class="bg-gradient-to-r from-brand-700 to-indigo-800 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between">
+          <div>
+            <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Evaluación Nivel A1
+            </span>
+            <h3 class="text-2xl font-extrabold font-fun mt-3">Examen Integral A1</h3>
+            <p class="mt-2 text-indigo-100 text-xs sm:text-sm leading-relaxed">
+              Resuelve 100 ejercicios gramaticales, lectura de comprensión con 15 preguntas y genera tu reporte oficial en PDF.
+            </p>
+          </div>
+          <div class="mt-6">
+            <button class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl shadow transition flex items-center space-x-2 text-sm">
+              <i class="fa-solid fa-pen-to-square"></i>
+              <span>Comenzar Examen A1</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Práctica con Flashcards -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Vocabulario Interactivo
+            </span>
+            <h3 class="text-2xl font-extrabold text-slate-900 font-fun mt-3">Flashcards & Práctica</h3>
+            <p class="mt-2 text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Refuerza el vocabulario de las 9 lecciones mediante tarjetas interactivas de pronunciación y significado.
+            </p>
+          </div>
+          <div class="mt-6">
+            <button class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-6 py-3 rounded-xl shadow transition flex items-center space-x-2 text-sm">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Abrir Tarjetas de Estudio</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto" class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="flex items-center justify-center space-x-2">
+        <span class="text-xl font-bold text-white font-fun">idíoslinguas</span>
+        <span class="text-xs bg-brand-500 text-white px-2 py-0.5 rounded-md font-semibold">A1 English</span>
+      </div>
+      <p class="text-xs text-slate-500">
+        © 2026 idíoslinguas Academia de Idiomas. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+
+</body>
+</html>
