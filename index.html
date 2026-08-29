@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Nos hemos mudado! - Idíoslinguas</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            fun: ['Fredoka', 'cursive'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f8ff',
+              100: '#e0f1fe',
+              500: '#0082c3',
+              600: '#006ba3',
+              700: '#005380',
+              dark: '#1a365d'
+            }
+          },
+          animation: {
+            'bounce-slow': 'bounce 3s infinite',
+            'pulse-glow': 'pulseGlow 2s infinite alternate',
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%': { boxShadow: '0 0 15px rgba(0, 130, 195, 0.2)' },
+              '100%': { boxShadow: '0 0 30px rgba(0, 130, 195, 0.6)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .badge-glow {
+      box-shadow: 0 0 12px rgba(0, 130, 195, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Header / Nav -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Vectorial Oficial de Idíoslinguas -->
+      <a href="https://idioslinguas.com" class="flex items-center space-x-3 group cursor-pointer">
+        <div class="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm">
+            <path d="M 30,115 C 15,55 80,15 150,28 C 182,34 192,62 170,82 C 138,112 45,152 30,115 Z" fill="none" stroke="#e63946" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 162,38 C 188,68 182,132 142,168 C 100,202 38,172 48,130" fill="none" stroke="#ffb703" stroke-width="7" stroke-linecap="round"/>
+            <path d="M 38,138 C 58,182 122,188 162,152" fill="none" stroke="#2a9d8f" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="100" cy="95" r="50" fill="none" stroke="#0077b6" stroke-width="5"/>
+            <ellipse cx="100" cy="95" rx="24" ry="50" fill="none" stroke="#0077b6" stroke-width="3"/>
+            <line x1="50" y1="95" x2="150" y2="95" stroke="#0077b6" stroke-width="3"/>
+            <line x1="60" y1="70" x2="140" y2="70" stroke="#0077b6" stroke-width="2"/>
+            <line x1="60" y1="120" x2="140" y2="120" stroke="#0077b6" stroke-width="2"/>
+            <rect x="110" y="58" width="22" height="14" rx="2" fill="#b71c1c"/>
+            <path d="M 110,58 H 121 V 65 H 110 Z" fill="#0d47a1"/>
+            <line x1="110" y1="62" x2="132" y2="62" stroke="#ffffff" stroke-width="1.5"/>
+            <line x1="110" y1="66" x2="132" y2="66" stroke="#ffffff" stroke-width="1.5"/>
+            <line x1="110" y1="70" x2="132" y2="70" stroke="#ffffff" stroke-width="1.5"/>
+            <path d="M 70,68 A 22,22 0 1 1 95,103 L 85,113 L 88,100 A 22,22 0 0 1 70,68 Z" fill="#0077b6"/>
+            <text x="82" y="91" font-family="'Fredoka', sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle">i</text>
+            <path d="M 125,88 A 20,20 0 1 1 145,120 L 142,128 L 134,119 A 20,20 0 0 1 125,88 Z" fill="#2a9d8f"/>
+            <text x="127" y="110" font-family="'Fredoka', sans-serif" font-weight="bold" font-size="18" fill="#ffffff" text-anchor="middle">l</text>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center text-xl sm:text-2xl font-extrabold tracking-tight text-[#16467d] leading-none font-fun">
+            <span>idíos</span><span class="text-[#1e5899] relative">linguas<span class="absolute -top-1.5 right-12 text-emerald-500 text-xs">🍃</span></span>
+          </div>
+          <span class="text-[9px] font-extrabold text-[#16467d] tracking-[0.2em] uppercase mt-0.5">
+            ACADEMIA DE IDIOMAS
+          </span>
+        </div>
+      </a>
+
+      <!-- Botón de acceso directo -->
+      <div>
+        <a href="https://idioslinguas.com" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-md transition-all duration-200 hover:shadow-lg flex items-center space-x-2">
+          <span>Ir a idioslinguas.com</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col items-center justify-center">
+    
+    <!-- Badge de Aviso -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-amber-50 text-amber-700 border border-amber-200 mb-6 shadow-sm animate-bounce-slow">
+      <i class="fa-solid fa-rocket text-amber-500"></i>
+      <span>¡Estrenamos nuevo sitio web oficial!</span>
+    </div>
+
+    <!-- Título Principal -->
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-fun leading-tight">
+        Nos hemos mudado a <br class="hidden sm:inline"/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-indigo-600 to-purple-600">
+          idioslinguas.com
+        </span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Hemos migrado toda nuestra plataforma, cursos, exámenes y herramientas de refuerzo a nuestro propio dominio oficial para ofrecerte una experiencia más rápida y completa.
+      </p>
+    </div>
+
+    <!-- Tarjeta Principal de Redirección -->
+    <div class="w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden text-center mb-12 animate-pulse-glow">
+      
+      <div class="absolute -top-12 -right-12 w-32 h-32 bg-brand-50 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-indigo-50 rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Dirección Web Highlight -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center space-x-3 overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-globe text-lg"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Nueva dirección web</p>
+            <a href="https://idioslinguas.com" class="text-lg sm:text-xl font-extrabold text-slate-800 hover:text-brand-500 transition-colors font-fun tracking-wide">
+              https://idioslinguas.com
+            </a>
+          </div>
+        </div>
+
+        <button onclick="copyToClipboard('https://idioslinguas.com')" class="w-full sm:w-auto px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 transition flex items-center justify-center space-x-2 shadow-sm">
+          <i class="fa-regular fa-copy"></i>
+          <span id="copy-btn-text">Copiar enlace</span>
+        </button>
+      </div>
+
+      <!-- Reloj / Cuenta Regresiva -->
+      <div class="mb-8">
+        <p class="text-xs sm:text-sm text-slate-500 font-medium mb-3">
+          Serás redirigido automáticamente en:
+        </p>
+        
+        <div class="flex items-center justify-center space-x-2">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 bg-brand-50 text-brand-600 border border-brand-100 rounded-2xl flex flex-col items-center justify-center shadow-inner">
+            <span id="countdown-timer" class="text-2xl sm:text-3xl font-black font-fun">10</span>
+            <span class="text-[10px] uppercase font-bold text-brand-500">seg</span>
+          </div>
+        </div>
+
+        <!-- Barra de Progreso -->
+        <div class="w-full bg-slate-100 rounded-full h-2.5 mt-5 overflow-hidden border border-slate-200">
+          <div id="progress-bar" class="bg-gradient-to-r from-brand-500 to-indigo-600 h-2.5 rounded-full transition-all duration-1000 ease-linear" style="width: 100%;"></div>
+        </div>
+
+        <!-- Botones de Control de Redirección -->
+        <div class="mt-3 flex justify-center items-center space-x-4">
+          <button id="toggle-timer-btn" onclick="toggleTimer()" class="text-xs text-slate-500 hover:text-slate-700 underline flex items-center space-x-1">
+            <i id="toggle-icon" class="fa-solid fa-pause"></i>
+            <span id="toggle-text">Pausar redirección</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Botón de Acción Principal -->
+      <a href="https://idioslinguas.com" class="inline-flex items-center justify-center w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 space-x-3">
+        <span>Ingresar a idioslinguas.com</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Sección Informativa: Lo que encontrarás en la nueva web -->
+    <div class="w-full max-w-4xl">
+      <h2 class="text-center text-lg sm:text-xl font-bold text-slate-700 font-fun mb-6">
+        Todo tu contenido sigue disponible en la nueva plataforma:
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <!-- Tarjeta 1: Lecciones -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-500 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 font-fun text-base">9 Lecciones del Curso A1</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Pronombres, Verbo To Be, Presente Simple, Adverbios y más lecciones interactivas.
+          </p>
+        </div>
+
+        <!-- Tarjeta 2: Examen Integral -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 font-fun text-base">Examen Integral A1</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            100 ejercicios gramaticales, lectura de comprensión y reporte oficial descargable en PDF.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3: Flashcards -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 font-fun text-base">Flashcards & Práctica</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Tarjetas interactivas de vocabulario, pronunciación y ejercicios de repaso.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 text-xs sm:text-sm font-medium transition-all duration-300 opacity-0 transform translate-y-10 pointer-events-none z-50">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+    <span>¡Enlace copiado al portapapeles!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+      <div class="flex items-center justify-center space-x-2">
+        <span class="text-xl font-bold text-white font-fun">idíoslinguas</span>
+        <span class="text-xs bg-brand-500 text-white px-2 py-0.5 rounded-md font-semibold">Nueva Web Oficial</span>
+      </div>
+      <p class="text-xs text-slate-500">
+        © 2026 idíoslinguas Academia de Idiomas. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lógica JavaScript para la redirección y cuenta regresiva -->
+  <script>
+    const targetUrl = "https://idioslinguas.com";
+    let countdown = 10;
+    const totalTime = 10;
+    let isPaused = false;
+    let timerInterval = null;
+
+    const timerElement = document.getElementById('countdown-timer');
+    const progressBar = document.getElementById('progress-bar');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const toggleText = document.getElementById('toggle-text');
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        if (!isPaused) {
+          countdown--;
+          if (timerElement) timerElement.innerText = countdown;
+
+          // Actualizar barra de progreso
+          const percentage = (countdown / totalTime) * 100;
+          if (progressBar) progressBar.style.width = `${percentage}%`;
+
+          if (countdown <= 0) {
+            clearInterval(timerInterval);
+            window.location.href = targetUrl;
+          }
+        }
+      }, 1000);
+    }
+
+    function toggleTimer() {
+      isPaused = !isPaused;
+      if (isPaused) {
+        toggleIcon.className = "fa-solid fa-play";
+        toggleText.innerText = "Reanudar redirección";
+      } else {
+        toggleIcon.className = "fa-solid fa-pause";
+        toggleText.innerText = "Pausar redirección";
+      }
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text);
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      showToast();
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      const copyBtnText = document.getElementById('copy-btn-text');
+      if (copyBtnText) copyBtnText.innerText = "¡Copiado!";
+      
+      if (toast) {
+        toast.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        
+        setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+          if (copyBtnText) copyBtnText.innerText = "Copiar enlace";
+        }, 3000);
+      }
+    }
+
+    // Iniciar temporizador al cargar la página
+    window.onload = function() {
+      startTimer();
+    };
+  </script>
+
+</body>
+</html>
